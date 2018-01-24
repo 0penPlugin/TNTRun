@@ -1,0 +1,11 @@
+name: TNTRun
+version: 1.0.0
+main: com.openplugins.tntrun.TNTRun
+description: TNTRun plugin
+commands:
+  start:
+    description: Forcestarts the game.
+    aliases: [forcestart]
+  tntrun:
+    description: Plugin information
+    aliases: [game]
