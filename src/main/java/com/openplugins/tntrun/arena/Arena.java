@@ -12,6 +12,23 @@ public class Arena {
     public Arena() {
         this.name= TNTRun.getGame().getConfig().getString("arena.name");
         lobby=getLocation("arena.lobby");
+        spawn=getLocation("arena.spawn");
+
+    }
+
+    public Location getSpawn() {
+        return spawn;
+    }
+
+    public void setSpawn(Location location) {
+
+        TNTRun.getGame().getConfig().set("arena.spawn.x",location.getX());
+        TNTRun.getGame().getConfig().set("arena.spawn.y",location.getY());
+        TNTRun.getGame().getConfig().set("arena.spawn.z",location.getZ());
+        TNTRun.getGame().getConfig().set("arena.spawn.world",location.getWorld().getName());
+        TNTRun.getGame().saveConfig();
+
+        this.spawn=location;
 
     }
 

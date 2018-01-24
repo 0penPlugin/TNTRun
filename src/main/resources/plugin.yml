@@ -11,3 +11,5 @@ commands:
     aliases: [game]
   setlobby:
     description: Set lobby.
+  setspawn:
+    description: Set spawn.

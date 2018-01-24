@@ -4,11 +4,18 @@ import com.openplugins.tntrun.arena.Arena;
 import com.openplugins.tntrun.command.GameCommands;
 import com.openplugins.tntrun.events.PlayerJoin;
 import com.openplugins.tntrun.utils.State;
+import com.openplugins.tntrun.utils.StorageAPI;
 import com.openplugins.utils.web.Request;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class TNTRun extends JavaPlugin {
 
@@ -19,6 +26,7 @@ public class TNTRun extends JavaPlugin {
     private String requestResult;
     private Arena arena;
     private PluginManager pluginManager;
+    private List<UUID> players;
 
     private static TNTRun game;
 
@@ -28,6 +36,8 @@ public class TNTRun extends JavaPlugin {
         game=this;
         state=State.LOBBY;
         version="1.0.0";
+
+        players = new ArrayList<>();
 
         arena=new Arena();
 
@@ -45,10 +55,25 @@ public class TNTRun extends JavaPlugin {
         getCommand("start").setExecutor(gameCommands);
         getCommand("tntrun").setExecutor(gameCommands);
         getCommand("setlobby").setExecutor(gameCommands);
+        getCommand("setspawn").setExecutor(gameCommands);
+
+        StorageAPI.init();
     }
 
     public String getRequestResult() {
         return requestResult;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public List<UUID> getPlayers() {
+        return players;
     }
 
     public Arena getArena() {
@@ -62,6 +87,10 @@ public class TNTRun extends JavaPlugin {
     @Override
     public void onDisable() {
         this.saveConfig();
+
+        for (Location location : StorageAPI.getRemovedBlocks()) {
+            location.getBlock().setType(Material.TNT);
+        }
     }
 
     public String getVersion() {
