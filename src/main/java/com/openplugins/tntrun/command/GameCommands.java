@@ -20,6 +20,16 @@ public class GameCommands extends SpigotCommand {
             // todo start
         }
 
+        if (command.getName().equalsIgnoreCase("setlobby")) {
+            if (!sender.hasPermission("tntrun.set") || !sender.hasPermission("openplugins.admin")) {
+                sendPermission(sender);
+                return;
+            }
+
+            sender.sendMessage(ChatColor.GREEN + "Set lobby location");
+            TNTRun.getGame().getArena().setLobby(sender.getLocation());
+        }
+
         if (command.getName().equalsIgnoreCase("tntrun")) {
             sender.sendMessage(ChatColor.GREEN + "TNTRun version " + TNTRun.getGame().getVersion());
 

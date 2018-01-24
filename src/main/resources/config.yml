@@ -1,0 +1,12 @@
+arena:
+  name: Arena
+  spawn:
+    world: world
+    x: 0
+    y: 0
+    z: 0
+  lobby:
+    world: world
+    x: 0
+    y: 0
+    z: 0

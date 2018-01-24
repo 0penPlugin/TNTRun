@@ -9,3 +9,5 @@ commands:
   tntrun:
     description: Plugin information
     aliases: [game]
+  setlobby:
+    description: Set lobby.
