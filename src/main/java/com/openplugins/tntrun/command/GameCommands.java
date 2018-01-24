@@ -22,6 +22,10 @@ public class GameCommands extends SpigotCommand {
 
         if (command.getName().equalsIgnoreCase("tntrun")) {
             sender.sendMessage(ChatColor.GREEN + "TNTRun version " + TNTRun.getGame().getVersion());
+
+            if (TNTRun.getGame().getRequestResult() != null) {
+                sender.sendMessage(TNTRun.getGame().getRequestResult());
+            }
         }
 
     }

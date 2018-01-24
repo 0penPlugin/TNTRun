@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TNTRun:jar">
+    <output-path>$PROJECT_DIR$/../../TestBox/plugins/</output-path>
+    <root id="archive" name="TNTRun.jar">
+      <element id="module-output" name="TNTRun" />
+    </root>
+  </artifact>
+</component>
