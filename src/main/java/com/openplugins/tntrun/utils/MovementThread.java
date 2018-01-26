@@ -15,7 +15,7 @@ public class MovementThread extends BukkitRunnable {
 
     public MovementThread() {
 
-        id = Bukkit.getScheduler().scheduleSyncRepeatingTask(TNTRun.getGame(),this,20L,20L);
+        id = Bukkit.getScheduler().scheduleSyncRepeatingTask(TNTRun.getGame(),this,10L,10L);
 
     }
 
