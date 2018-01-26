@@ -32,6 +32,12 @@ public class TNTRun extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        if (Bukkit.getPluginManager().getPlugin("SpigotUtils") == null) {
+            this.setEnabled(false);
+            return;
+        }
+
         this.saveDefaultConfig();
         game=this;
         state=State.LOBBY;
